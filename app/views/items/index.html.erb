@@ -19,7 +19,7 @@
              <%= number_to_currency(item.price, :unit => "€") %>
           </div>
           <div class="links">
-            <% if session[:login] ==1 %>
+            <% if user_signed_in? %>
               <%= link_to 'Edit', edit_item_path(item) %>
               <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
             <%else%>
@@ -33,6 +33,6 @@
 </table>
 
 <br>
-<% if session[:login]==1%>
+<% if user_signed_in? %>
 <p><%= link_to 'New Item', new_item_path %></p>
 <%end%>

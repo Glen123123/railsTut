@@ -1,4 +1,7 @@
 class CartController < ApplicationController
+  #authentication needed before functionality of cart is available to user
+  before_action :authenticate_user!
+  
   def add
     # get the Id of the product
     id = params[:id]
